@@ -7,7 +7,6 @@ import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import { resetCart } from '../slices/cartSlice';
 import SearchBox from './SearchBox';
-import logo from '../assets/logo.png';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -35,8 +34,7 @@ const Header = () => {
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <img src={logo} alt='ProShop' />
-              ProShop
+              Westcoast Boardgames
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
