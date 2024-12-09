@@ -33,4 +33,4 @@ sb-qget610533639@personal.example.com
 
 # Live Version
 
-https://chips-electronics.uc.r.appspot.com/
+https://westcoast-boardgames.onrender.com/
