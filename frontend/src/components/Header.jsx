@@ -40,8 +40,7 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-          <div className='col-sm-4'></div>
-          <Navbar.Brand className='shipping' >
+          <Navbar.Brand className='shipping text-center col-sm-9' >
               Free Shipping on orders over $100
           </Navbar.Brand>
             <Nav className='ms-auto'>
@@ -92,12 +91,12 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Navbar bg='secondary' variant='dark' expand='lg' collapseOnSelect className='flex-column'>
-        <div className='col-sm-5'>
+      <Navbar bg='secondary' variant='dark'collapseOnSelect className='flex-column'>
+        <div className='col-sm-10 col-md-6' >
         <SearchBox />
         </div>
       </Navbar>
-      <Navbar bg='primary' variant='dark' expand='lg' className='flex-column'>
+      <Navbar bg='primary' variant='dark' className='flex-column'>
        <Navbar.Collapse id='basic-navbar-nav'>
         <LinkContainer  to = '/search/social deduction/category' style={{ marginLeft: '5px', marginRight:'5px' }}  className='extra-links'><Nav.Link>Social Deduction Games</Nav.Link></LinkContainer > 
         <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
