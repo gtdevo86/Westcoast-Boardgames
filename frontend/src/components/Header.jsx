@@ -102,7 +102,7 @@ const Header = () => {
         <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
         <LinkContainer  to = '/search/kids/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Great for kids</Nav.Link></LinkContainer >
         <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
-        <LinkContainer  to = '/search/strategy/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Strategy Enthusiasts</Nav.Link></LinkContainer >
+        <LinkContainer  to = '/search/strategy/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Strategy Games</Nav.Link></LinkContainer >
         <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
         <LinkContainer  to = '/search/new player/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Great for New Players</Nav.Link></LinkContainer >
         <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>

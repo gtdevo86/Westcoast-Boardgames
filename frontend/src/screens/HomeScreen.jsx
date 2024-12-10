@@ -36,7 +36,7 @@ const HomeScreen = () => {
         <div className='text-center'>
         {field==="category"?(keyword==="social deduction"?(<h1>Social Deduction Games</h1>):
         keyword==="kids"?(<h1>Great for Kids</h1>):
-        keyword==="strategy"?(<h1>Strategy Enthusiasts</h1>):
+        keyword==="strategy"?(<h1>Strategy Games</h1>):
         keyword==="new player"?(<h1>Great for New Players</h1>):
         keyword==="party"?(<h1>Great for Parties</h1>):(<></>)):(<h1>Search Results</h1>)}
         </div>
