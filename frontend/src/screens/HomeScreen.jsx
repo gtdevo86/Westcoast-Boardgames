@@ -10,21 +10,39 @@ import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
 
 const HomeScreen = () => {
-  const { pageNumber, keyword } = useParams();
+  const { pageNumber,field, keyword, } = useParams();
 
   const { data, isLoading, error } = useGetProductsQuery({
     keyword,
+    field,
     pageNumber,
   });
 
   return (
     <>
       {!keyword ? (
+        <>
+
+        <h1 className='text-center'>Check out these popular games!</h1>
         <ProductCarousel />
+        <h1 className='text-center'>Latest Games</h1>
+        </>
+
       ) : (
+        <>
         <Link to='/' className='btn btn-light mb-4'>
           Go Back
         </Link>
+        <div className='text-center'>
+        {field==="category"?(keyword==="social deduction"?(<h1>Social Deduction Games</h1>):
+        keyword==="kids"?(<h1>Great for Kids</h1>):
+        keyword==="strategy"?(<h1>Strategy Enthusiasts</h1>):
+        keyword==="new player"?(<h1>Great for New Players</h1>):
+        keyword==="party"?(<h1>Great for Parties</h1>):(<></>)):(<h1>Search Results</h1>)}
+        </div>
+        </>
+
+        
       )}
       {isLoading ? (
         <Loader />
@@ -35,7 +53,7 @@ const HomeScreen = () => {
       ) : (
         <>
           <Meta />
-          <h1>Latest Games</h1>
+          
           <Row>
             {data.products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3} >

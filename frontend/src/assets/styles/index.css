@@ -32,6 +32,16 @@ table th {
   margin-top: 30px;
 }
 
+.carousel-text{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* truncate to 4 lines */
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+
+}
+
 .review h2 {
   font-size: 24px;
   background: #f4f4f4;
@@ -66,6 +76,27 @@ table th {
   height: 300px;
 }
 
+.shipping{
+  color:chartreuse
+}
+.shipping:hover{
+  color:chartreuse
+}
+
+.extra-links{
+  color: white;
+}
+
+.extra-links:hover{
+  color:gray
+}
+.link-seperator{
+  color: white;
+}
+
+.extra-links:active{
+  color: #f8e825 !important;
+}
 
 @media only screen and (min-width: 768px) {
   .card {

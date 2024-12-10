@@ -7,10 +7,46 @@ import Product from '../models/productModel.js';
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
+  const field = req.query.field;
+  var keyword = '';
+  if (field === 'category') {
+    keyword = req.query.keyword
+      ? {
+          category: {
+            $regex: req.query.keyword,
+            $options: 'i',
+          },
+        }
+      : {};
+  } else {
+    keyword = req.query.keyword
+      ? {
+          name: {
+            $regex: req.query.keyword,
+            $options: 'i',
+          },
+        }
+      : {};
+  }
+
+  const count = await Product.countDocuments({ ...keyword });
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
+// @desc    Fetch all products within a category
+// @route   GET /api/products/category
+// @access  Public
+const getProductsByCategory = asyncHandler(async (req, res) => {
+  const pageSize = process.env.PAGINATION_LIMIT;
+  const page = Number(req.query.pageNumber) || 1;
 
   const keyword = req.query.keyword
     ? {
-        name: {
+        category: {
           $regex: req.query.keyword,
           $options: 'i',
         },
@@ -21,7 +57,6 @@ const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
-
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
@@ -150,6 +185,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
 
 export {
   getProducts,
+  getProductsByCategory,
   getProductById,
   createProduct,
   updateProduct,

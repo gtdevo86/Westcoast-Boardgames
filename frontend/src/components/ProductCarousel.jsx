@@ -11,17 +11,30 @@ const ProductCarousel = () => {
   ) : (
     <Carousel pause='hover' className='bg-primary mb-4'>
       {products.map((product) => (
-        <Carousel.Item key={product._id}>
+       
+        <Carousel.Item key={product._id} >
           <Link to={`/product/${product._id}`}>
+          <div className='row'>
+          <div className='col-md'>
             <Image src={product.image} alt={product.name} fluid  className='carousel-image'/>
             <Carousel.Caption className='carousel-caption'>
               <h2 className='text-white text-right'>
                 {product.name} (${product.price})
               </h2>
             </Carousel.Caption>
-          </Link>
+         
+          </div>
+          <div className='col-md-9' style={{marginTop:'40px', marginRight:'25px', marginLeft:'25px', color:'white' }} >
+            <h4 className='carousel-text'>{product.description}</h4>
+          </div>
+        </div>
+        </Link>
         </Carousel.Item>
+        
+
+
       ))}
+
     </Carousel>
   );
 };

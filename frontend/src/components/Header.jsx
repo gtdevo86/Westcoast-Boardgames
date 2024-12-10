@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, NavDropdown, Badge } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import { resetCart } from '../slices/cartSlice';
@@ -14,6 +14,7 @@ const Header = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
 
   const [logoutApiCall] = useLogoutMutation();
 
@@ -30,7 +31,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='secondary' variant='dark' expand='lg' collapseOnSelect className='flex-column'>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
@@ -39,8 +40,11 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+          <div className='col-sm-4'></div>
+          <Navbar.Brand className='shipping' >
+              Free Shipping on orders over $100
+          </Navbar.Brand>
             <Nav className='ms-auto'>
-              <SearchBox />
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <FaShoppingCart /> Cart
@@ -87,6 +91,24 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
+      </Navbar>
+      <Navbar bg='secondary' variant='dark' expand='lg' collapseOnSelect className='flex-column'>
+        <div className='col-sm-5'>
+        <SearchBox />
+        </div>
+      </Navbar>
+      <Navbar bg='primary' variant='dark' expand='lg' className='flex-column'>
+       <Navbar.Collapse id='basic-navbar-nav'>
+        <LinkContainer  to = '/search/social deduction/category' style={{ marginLeft: '5px', marginRight:'5px' }}  className='extra-links'><Nav.Link>Social Deduction Games</Nav.Link></LinkContainer > 
+        <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
+        <LinkContainer  to = '/search/kids/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Great for kids</Nav.Link></LinkContainer >
+        <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
+        <LinkContainer  to = '/search/strategy/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Strategy Enthusiasts</Nav.Link></LinkContainer >
+        <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
+        <LinkContainer  to = '/search/new player/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Great for New Players</Nav.Link></LinkContainer >
+        <div className='link-seperator'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
+        <LinkContainer  to = '/search/party/category'style={{ marginLeft: '5px', marginRight:'5px' }} className='extra-links'><Nav.Link>Great for Parties</Nav.Link></LinkContainer >
+       </Navbar.Collapse>
       </Navbar>
     </header>
   );
