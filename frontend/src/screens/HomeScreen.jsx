@@ -12,7 +12,7 @@ import Meta from '../components/Meta';
 const HomeScreen = () => {
   const { pageNumber,field, keyword, } = useParams();
 
-  const { data, isLoading, error } = useGetProductsQuery({
+  const { data, isFetching , error } = useGetProductsQuery({
     keyword,
     field,
     pageNumber,
@@ -44,7 +44,8 @@ const HomeScreen = () => {
 
         
       )}
-      {isLoading ? (
+
+      {isFetching  ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>
