@@ -40,7 +40,7 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-          <Navbar.Brand className='shipping text-center col-sm-9' >
+          <Navbar.Brand className='shipping text-center col-sm-7' >
               Free Shipping on orders over $100
           </Navbar.Brand>
             <Nav className='ms-auto'>
